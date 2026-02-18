@@ -6,18 +6,24 @@ import ratelimiter from "./middleware/ratelimiter.js";
 dotenv.config();
 import cors from "cors";
 import aiRoutes from "./routes/aiRoutes.js"
-
+import path from "path"
 
 const app = express();
 const PORT = process.env.PORT || 5001;
 
 console.log(process.env.MONGO_URI);
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-  })
-);
+const __dirname = path.resolve();
+
+if(process.env.NODE_ENV !== "production"){
+  app.use(
+    cors({
+      origin: "http://localhost:5173",
+    })
+  );
+}
+
+
 
 // middleware FIRST - thius middleware will parse JSON bodies: req.body
 app.use(express.json()); // allows to get access to req, res, http requests 
@@ -34,7 +40,12 @@ app.use(ratelimiter)
 app.use("/api/notes", notesRoutes);
 
 app.use("/api/ai", aiRoutes);
+ 
+app.use(express.static(path.join(__dirname, "../frontend/dist")))
 
+app.get("*", (req,res) => {
+  res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+});
 
 // connect DB BEFORE listening (recommended)
 connectDB().then(() => {
