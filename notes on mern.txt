@@ -1,0 +1,75 @@
+express - web framework
+
+A web framework is a ready-to-use toolbox for building web apps faster and easily
+
+node.js - javascript runtime
+
+allows you to run js on server
+
+client is frontend
+server is backend
+
+
+REST API
+
+uses HTTP methods
+
+GET -> get some posts on instagram
+POST -> create a post
+PUT -> update a post
+DELETE -> delete a post
+
+status codes
+1xx - informational codes
+
+2xx - success codes
+eg: 200 OK -everything worked as expected
+201 CREATED - New resource successfully  created (eg: after a POST request)
+
+3xx - redirection
+300 status codes are for redirection meaning the server is telling the client , "Ehy, the thing that you are  looking for is somewhere else."
+
+eg: 301 moved permanently
+you site changes from http://example.com to https://example.com
+you set up a 301 redirect so visitors and google know to go th the new one.
+
+
+4xx - error status code - error message
+
+these are client errors, these happen when the problem is on the user's side meaning your browser or app made a bad request
+
+eg
+400 Bad request- req is malformed or invalid
+401 unauthorized - you must log in (missing or invalid credentails)
+403 foirbidden - you are not access this this
+404 not found -  the url doesn not exist
+429 too many req
+
+
+5xx - server errors
+
+happens when something goes wrong on the server side even though the client made a valid request
+
+
+eg
+500 internal server error -  something broke on the server
+503 service unavailable - server is temporarily overloaded or down
+
+
+sql database is used when you are building very complex project, like for example -> a large social media app
+NoSQl db is used for fast changing data or huge amounts of data
+
+ rate limiting - it is a way to control how often someone can do something on a website or app like how many times they can refresh a page, make a request to an API, or try to log in.
+
+ only 100 requests per user every 15 minutes
+
+ rate limiting helps with preventing abus and portraiting servers from getting overwhelmed
+
+status  code 429 -  means too many requests+
+
+cors - cross origin resource sharing
+cors is a a browser security rule
+
+when a website tries to get data from another website  -- like your frontend calling an API on a different domain -- the browser might block it for security reasons
+
+
