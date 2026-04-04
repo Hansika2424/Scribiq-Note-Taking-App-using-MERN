@@ -2,16 +2,21 @@
 
 **An AI-powered, full-stack note-taking app built with the MERN stack.**
 
-Scribiq lets you create, manage, and search your notes — with a built-in AI assistant powered by Google Gemini that helps you write faster and think clearer. Built with a clean dark UI, real-time search, and a secure backend with rate limiting to keep things smooth under load.
+Scribiq lets you create, manage, and search your notes — with a built-in AI assistant powered by Google Gemini that helps you write faster and think clearer. Built with a clean dark UI, real-time search, and a secure backend with rate limiting to keep things running smoothly.
 
-🔗 **[Live Demo](https://scribiq-note-taking-app-using-mern-2.onrender.com)**
+---
+
+## Screenshot
+
+### Create a Note - using AI assistance
+![Create Note](https://github.com/Hansika2424/Scribiq-Note-Taking-App-using-MERN/blob/main/Screenshot%202026-04-04%20135823.png?raw=true)
 
 ---
 
 ## Features
 
-- **AI Writing Assistance** — Stuck on what to write? Hit the AI button and let Gemini 2.0 Flash suggest content based on your note context
-- **Full CRUD** — Create, read, update, and delete notes with a clean, intuitive interface
+- **AI Writing Assistance** — Hit Improve, Fix Grammar, Expand, or Summarize and let Gemini 2.0 Flash rewrite your note content instantly
+- **Full CRUD** — Create, read, update, and delete notes with a clean and intuitive interface
 - **Real-time Search** — Instantly filter through your notes as you type
 - **Rate Limiting** — Backend requests are rate-limited via Upstash Redis to prevent abuse and keep the server stable
 - **Responsive Dark UI** — Built with TailwindCSS and DaisyUI, works seamlessly across desktop and mobile
@@ -28,7 +33,6 @@ Scribiq lets you create, manage, and search your notes — with a built-in AI as
 | Database | MongoDB |
 | AI | Google Gemini 2.0 Flash API |
 | Rate Limiting | Upstash Redis |
-| Deployment | Render |
 
 ---
 
@@ -39,7 +43,7 @@ Scribiq-Note-Taking-App-using-MERN/
 ├── backend/
 │   ├── models/          # MongoDB note schema
 │   ├── routes/          # Express API routes
-│   ├── middleware/       # Rate limiting middleware (Upstash Redis)
+│   ├── middleware/      # Rate limiting middleware (Upstash Redis)
 │   └── server.js        # Entry point
 ├── frontend/
 │   ├── src/
@@ -127,24 +131,7 @@ The app will be running at `http://localhost:5173`
 
 ## Why Upstash Redis for Rate Limiting?
 
-The backend is deployed on Render, which is a **serverless/stateless** environment — meaning the server spins up and down with each request. Traditional Redis requires a persistent TCP connection, which breaks in this setup.
-
-Upstash Redis is **HTTP-based**, so every request is stateless and works perfectly with serverless deployments — no connection management needed. Each user is limited to a set number of API calls per window, returning a `429 Too Many Requests` response if exceeded.
-
----
-
-## Deployment
-
-The app is deployed with a monorepo setup. The root `package.json` handles the full build:
-
-```json
-"scripts": {
-  "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
-  "start": "npm run start --prefix backend"
-}
-```
-
-The built frontend is served statically by the Express backend in production.
+Traditional Redis requires a persistent TCP connection. Upstash Redis is **HTTP-based**, so every request is stateless — no connection management needed, and it works perfectly in any deployment environment. Each user is limited to a set number of API calls per window, returning a `429 Too Many Requests` response if exceeded.
 
 ---
 
