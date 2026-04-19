@@ -1,3 +1,5 @@
+
+
 # Scribiq 📝
 
 **An AI-powered, full-stack note-taking app built with the MERN stack.**
@@ -5,6 +7,13 @@
 Scribiq lets you create, manage, and search your notes — with a built-in AI assistant powered by Google Gemini that helps you write faster and think clearer. Built with a clean dark UI, real-time search, and a secure backend with rate limiting to keep things running smoothly.
 
 ---
+
+## Demo Video
+
+
+
+
+
 
 ## Screenshot
 
