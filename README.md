@@ -10,7 +10,7 @@ Scribiq lets you create, manage, and search your notes — with a built-in AI as
 
 ## Demo Video
 
-
+https://raw.githubusercontent.com/Hansika2424/Scribiq-Note-Taking-App-using-MERN/main/frontend%20-%20Google%20Chrome%202026-04-19%2014-00-25%20(1).mp4
 
 
 
